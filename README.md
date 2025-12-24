@@ -31,6 +31,7 @@ Not tested in/for production, bugs, etc. This approach or code might also be a b
 1. Create a new class that inherits from `UIController` and implement the `UIController` abstract methods in the new class (template in `UIController.cs`)
 2. Add `UnityEngine.UIElements` (UI Toolkit/`VisualElement` elements) as fields to the class and create/remove the elements in `CreateElements()` and `RemoveElements()`, and register any events if needed
 ```csharp
+/*IN UICONTROLLER*/
 using UnityEngine.UIElements;
 
 
@@ -86,6 +87,7 @@ using UnityEngine.UIElements;
 ```
 3. Add the `UIController` component on the `GameObject` as a component and as a field to a class deriving from `UI` or `UISingleton<T>` and then use `GetComponents()` and `Initialize()` to get and initialize the `UIController`
 ```csharp
+/*IN UI OR UISINGLETON*/
 	//Inherited protected VisualElement _root;
 
 	//1. Add components
@@ -141,4 +143,5 @@ using UnityEngine.UIElements;
 ## Notes
 
 - Check the `Examples` folder for e.g. custom element examples etc.
+
 
