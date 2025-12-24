@@ -1,4 +1,4 @@
-# Unity_UIToolkit_component_based_code_first
+# UnityUIToolkit_ComponentBasedCodeFirst
 
 ## Description
 Scripts for the Unity UI Toolkit, for creating component based UI (mostly) code first/programmatically. Where the top level `UI : BaseUI` or `UISingleton<T> : BaseUI where T : UISingleton<T>` defines and initializes all the `UIController` components, and the `UIController` creates and handles the logic for the UI elements.
@@ -141,3 +141,4 @@ using UnityEngine.UIElements;
 ## Notes
 
 - Check the `Examples` folder for e.g. custom element examples etc.
+
