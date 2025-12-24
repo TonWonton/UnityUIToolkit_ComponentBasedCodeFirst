@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+
+
+    <!-- Add stylesheet -->
+    <Style src="project://database/Assets/UI/MainMenu/MainMenuUI.uss" />
+
+
+</ui:UXML>

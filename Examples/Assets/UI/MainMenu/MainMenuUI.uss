@@ -1,0 +1,18 @@
+/* MAIN MENU BUTTONS */
+.main-menu-buttons {
+	position: absolute;
+
+	width: 192px;
+	height: 96px;
+
+	top: 492px;
+	left: 864px;
+
+	flex-direction: column;
+}
+.main-menu-buttons__button {
+	width: 192px;
+	height: 32px;
+
+	font-size: 24px;
+}
