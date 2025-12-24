@@ -2,7 +2,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
 
 
-    <!-- Add stylesheet -->
+    <!-- Add stylesheets -->
     <Style src="project://database/Assets/UI/MainMenu/MainMenuUI.uss" />
 
 
