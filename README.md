@@ -85,7 +85,7 @@ using UnityEngine.UIElements;
 	}
 
 ```
-3. Add the `UIController` component on the `GameObject` as a component and as a field to a class deriving from `UI` or `UISingleton<T>` and then use `GetComponents()` and `Initialize()` to get and initialize the `UIController`
+3. Add the `UIController` component to the `GameObject` as a component, and as a field on a class deriving from `UI` or `UISingleton<T>` and then use `GetComponents()` and `Initialize()` to get and initialize the `UIController`
 ```csharp
 /*IN UI OR UISINGLETON*/
 	//Inherited protected VisualElement _root;
@@ -143,5 +143,6 @@ using UnityEngine.UIElements;
 ## Notes
 
 - Check the `Examples` folder for e.g. custom element examples etc.
+
 
 
