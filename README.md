@@ -13,7 +13,7 @@ Not tested in/for production, bugs, etc. This approach or code might also be a b
 ## Suggested usage
 1. Create a `GameObject` in a scene and add the `UIDocument` `MonoBehaviour` component to the `GameObject`
 2. On the `UIDocument`, add a Panel Settings Asset to the  `Panel Settings` field and an UI Document `.uxml` file that contains the file path to any used `.uss` style sheets to the `Source Asset` field
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
 
@@ -30,7 +30,7 @@ Not tested in/for production, bugs, etc. This approach or code might also be a b
 ### Creating/adding components
 1. Create a new class that inherits from `UIController` and implement the `UIController` abstract methods in the new class (template in `UIController.cs`)
 2. Add `UnityEngine.UIElements` (UI Toolkit/`VisualElement` elements) as fields to the class and create/remove the elements in `CreateElements()` and `RemoveElements()`, and register any events if needed
-```
+```csharp
 using UnityEngine.UIElements;
 
 
@@ -84,8 +84,8 @@ using UnityEngine.UIElements;
 	}
 
 ```
-3. Add the `UIController` component as a field to the `UI` or `UISingleton<T>` class and add it to `GetComponents()` and `Initialize()`
-```
+3. Add the `UIController` component on the `GameObject` as a component and as a field to a class deriving from `UI` or `UISingleton<T>` and then use `GetComponents()` and `Initialize()` to get and initialize the `UIController`
+```csharp
 	//Inherited protected VisualElement _root;
 
 	//1. Add components
@@ -120,9 +120,9 @@ using UnityEngine.UIElements;
 - Don't have to use UnityEditor
 
 ### Changing element style
-1. Call `VisualElement``.AddToClassList("style-class-name")`
+1. Call `VisualElement` `.AddToClassList("style-class-name")`
 2. Add any used `.uss` files to the `.uxml` UI Document
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
 
@@ -139,4 +139,5 @@ using UnityEngine.UIElements;
 - Works without recompilation but the UI will rebuild and call `BaseUI.Initialize()`. If needed add logic to e.g. the `UIController` that e.g. sets itself up again with previous state
 
 ## Notes
+
 - Check the `Examples` folder for e.g. custom element examples etc.
