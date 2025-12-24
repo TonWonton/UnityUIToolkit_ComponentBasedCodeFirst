@@ -62,6 +62,7 @@ public partial class MainMenuButtons : VisualElement
 		_exitGameButton.text = "Exit Game";
 
 		//Register button click events
+		//This will cause a memory leak if events are not unregistered. Handle unregistration with `ICallbackUI`, controller, etc.
 		_startGameButton.clicked += OnStartGameButtonClicked;
 		_settingsButton.clicked += OnSettingsButtonClicked;
 		_exitGameButton.clicked += OnExitGameButtonClicked;
