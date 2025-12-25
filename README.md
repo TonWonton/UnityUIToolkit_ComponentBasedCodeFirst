@@ -6,6 +6,12 @@ Scripts for the Unity UI Toolkit, for creating component based UI (mostly) code 
 ## Disclaimer
 Not tested in/for production, bugs, etc. This approach or code might also be a bad/ineffective/weird way to do UI. Not sure. I just thought examples for the Unity UI toolkit was (maybe?) lacking and that it might come in handy for someone. All code and info in this repository is provided "as is" without warranty of any kind and I am not responsible for any damages or problems, etc. that might come from using the info and code. See the license for more information.
 
+## Table of contents
+- Installation
+- Benefits of this approach
+- Suggested usage
+- Notes
+
 ## Installation
 1. Download the files from the repository
 2. Copy the `Assets` folder into the Unity project
