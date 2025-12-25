@@ -39,6 +39,25 @@ public partial class MainMenuButtons : VisualElement
 
 
 
+	//ICallbackUI
+	//Automatically called ~1 frame after constructor
+	public void RegisterCallbacks()
+	{
+		_startGameButton.clicked += OnStartGameButtonClicked;
+		_settingsButton.clicked += OnSettingsButtonClicked;
+		_exitGameButton.clicked += OnExitGameButtonClicked;
+	}
+
+	//Automatically called at end of lifespan when removed
+	public void UnregisterCallbacks()
+	{
+		_startGameButton.clicked -= OnStartGameButtonClicked;
+		_settingsButton.clicked -= OnSettingsButtonClicked;
+		_exitGameButton.clicked -= OnExitGameButtonClicked;
+	}
+
+
+
 	//Initialization
 	public MainMenuButtons()
 	{
@@ -61,11 +80,9 @@ public partial class MainMenuButtons : VisualElement
 		_settingsButton.text = "Settings";
 		_exitGameButton.text = "Exit Game";
 
-		//Register button click events
-		//This will cause a memory leak if events are not unregistered. Handle unregistration with `ICallbackUI`, controller, etc.
-		_startGameButton.clicked += OnStartGameButtonClicked;
-		_settingsButton.clicked += OnSettingsButtonClicked;
-		_exitGameButton.clicked += OnExitGameButtonClicked;
+		//Register button click events with ICallbackUI in constructor
+		if (this is ICallbackUI callbackUI) { callbackUI.RegisterPanelEventsICallbackUI(); }
+		else { Debug.LogWarning("[ICallbackUI] Tried to register panel events but class " + this.GetType().ToString() + " does not implement ICallbackUI"); }
 
 		//Add buttons to container
 		Add(_startGameButton);

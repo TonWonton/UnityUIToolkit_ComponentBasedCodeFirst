@@ -1,4 +1,5 @@
 #nullable enable
+using UnityEngine;
 using UnityEngine.UIElements;
 
 
@@ -7,7 +8,7 @@ public interface ICallbackUI
 	public abstract void RegisterCallbacks();
 	public abstract void UnregisterCallbacks();
 
-
+	//Automatically called ~1 frame after constructor
 	public void OnAttachToPanelICallbackUI(AttachToPanelEvent evt)
 	{
 		RegisterCallbacks();
@@ -18,6 +19,7 @@ public interface ICallbackUI
 		}
 	} 
 	
+	//Automatically called at end of lifespan when removed
 	public void OnDetachFromPanelICallbackUI(DetachFromPanelEvent evt)
 	{
 		UnregisterCallbacks();
@@ -28,6 +30,7 @@ public interface ICallbackUI
 		}
 	}
 
+	//Call in constructor
 	public void RegisterPanelEventsICallbackUI()
 	{
 		if (this is VisualElement visualElement)
@@ -41,7 +44,7 @@ public interface ICallbackUI
 	/*
 	Template
 
-	//Initialization
+	//ICallbackUI
 	public void RegisterCallbacks()
 	{
 
@@ -52,9 +55,9 @@ public interface ICallbackUI
 
 	}
 
-	//Register event callbacks
+	//Register event callbacks, call in constructor
 	if (this is ICallbackUI callbackUI) { callbackUI.RegisterPanelEventsICallbackUI(); }
-	else { Log.Warning("[ICallbackUI] Tried to register panel events but class " + this.GetType().ToString() + " does not implement ICallbackUI"); }
+	else { Debug.LogWarning("[ICallbackUI] Tried to register panel events but class " + this.GetType().ToString() + " does not implement ICallbackUI"); }
 
 	*/
 }
