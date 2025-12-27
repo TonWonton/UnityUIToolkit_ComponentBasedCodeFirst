@@ -56,6 +56,7 @@ public abstract class UISingleton<T> : BaseUI where T : UISingleton<T>
 	/* Template
 
 	//Variables
+	//Inherited public static T? Instance { get; protected set; }
 	//Inherited protected UIDocument _uiDocument;
 	//Inherited protected VisualElement _root;
 	//Inherited public UIDocument UIDocument { get { return _uiDocument; } }

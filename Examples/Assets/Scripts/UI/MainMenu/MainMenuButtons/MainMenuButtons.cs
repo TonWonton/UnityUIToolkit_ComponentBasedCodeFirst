@@ -4,7 +4,7 @@ using System;
 
 
 [UxmlElement]
-public partial class MainMenuButtons : VisualElement
+public partial class MainMenuButtons : VisualElement, ICallbackUI
 {
 	//Elements
 	private Button _startGameButton;
