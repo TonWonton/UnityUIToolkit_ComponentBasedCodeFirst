@@ -41,11 +41,9 @@ public class RoundCounterController : UIController
 
 	protected override void RemoveElements()
 	{
-		if (_parentElement != null)
-		{
-			if (_roundCounter != null) { _parentElement.Remove(_roundCounter); }
-			_roundCounter = null;
-		}
+		if (_roundCounter != null) { _roundCounter.RemoveFromHierarchy(); }
+
+		_roundCounter = null;
 	}
 
 	protected override void RegisterEvents()

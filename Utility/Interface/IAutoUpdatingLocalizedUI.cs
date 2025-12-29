@@ -6,38 +6,24 @@ using UnityEngine.Localization.Settings;
 
 public interface IAutoUpdatingLocalizedUI
 {
-	//Methods
 	public abstract void OnSelectedLocaleChanged(Locale? locale);
 
-	//Automatically called ~1 frame after constructor
 	public void OnAttachToPanelIAutoUpdatingLocalizedUI(AttachToPanelEvent evt)
 	{
 		LocalizationSettings.SelectedLocaleChanged += OnSelectedLocaleChanged;
-
-		if (this is VisualElement visualElement)
-		{
-			visualElement.UnregisterCallback<AttachToPanelEvent>(OnAttachToPanelIAutoUpdatingLocalizedUI);
-		}
 	}
 
-	//Automatically called at end of lifespan when removed
 	public void OnDetachFromPanelIAutoUpdatingLocalizedUI(DetachFromPanelEvent evt)
 	{
 		LocalizationSettings.SelectedLocaleChanged -= OnSelectedLocaleChanged;
-
-		if (this is VisualElement visualElement)
-		{
-			visualElement.UnregisterCallback<DetachFromPanelEvent>(OnDetachFromPanelIAutoUpdatingLocalizedUI);
-		}
 	}
 
-	//Call in constructor
 	public void RegisterPanelEventsIAutoUpdatingLocalizedUI()
 	{
 		if (this is VisualElement visualElement)
 		{
-			visualElement.RegisterCallback<AttachToPanelEvent>(OnAttachToPanelIAutoUpdatingLocalizedUI);
-			visualElement.RegisterCallback<DetachFromPanelEvent>(OnDetachFromPanelIAutoUpdatingLocalizedUI);
+			visualElement.RegisterCallbackOnce<AttachToPanelEvent>(OnAttachToPanelIAutoUpdatingLocalizedUI);
+			visualElement.RegisterCallbackOnce<DetachFromPanelEvent>(OnDetachFromPanelIAutoUpdatingLocalizedUI);
 		}
 	}
 
@@ -49,9 +35,8 @@ public interface IAutoUpdatingLocalizedUI
 
 	}
 
-	//Register event callbacks, call in constructor
 	if (this is IAutoUpdatingLocalizedUI autoUpdatingLocalizedUI) { autoUpdatingLocalizedUI.RegisterPanelEventsIAutoUpdatingLocalizedUI(); }
-	else { Debug.LogWarning("[IAutoUpdatingLocalizedUI] Tried to register panel events but class " + this.GetType().ToString() + " does not implement IAutoUpdatingLocalizedUI"); }
+	else { Log.Warning("[IAutoUpdatingLocalizedUI] Tried to register panel events but class " + this.GetType().ToString() + " does not implement IAutoUpdatingLocalizedUI"); }
 	
 	*/
 }

@@ -36,11 +36,9 @@ public class SelectedMapController : UIController
 
 	protected override void RemoveElements()
 	{
-		if (_parentElement != null && _selectedMap != null)
-		{
-			_parentElement.Remove(_selectedMap);
-			_selectedMap = null;
-		}
+		if (_selectedMap != null) { _selectedMap.RemoveFromHierarchy(); }
+
+		_selectedMap = null;
 	}
 
 	protected override void RegisterEvents()

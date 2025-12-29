@@ -54,11 +54,8 @@ public class MainMenuButtonsController : UIController
 
 	protected override void RemoveElements()
 	{
-		if (_parentElement != null)
-		{
-			//Remove elements from parent element
-			if (_mainMenuButtons != null) { _parentElement.Remove(_mainMenuButtons); }
-		}
+		//Remove elements from parent element
+		if (_mainMenuButtons != null) { _mainMenuButtons.RemoveFromHierarchy(); }
 
 		//Set references to null
 		_mainMenuButtons = null;

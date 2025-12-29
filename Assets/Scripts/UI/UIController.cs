@@ -66,10 +66,7 @@ public abstract class UIController : MonoBehaviour
 
 	protected override void RemoveElements()
 	{
-		if (_parentElement != null)
-		{
-			if (_ != null) { _parentElement.Remove(_); }
-		}
+		if (_ != null) { _.RemoveFromHierarchy(); }
 
 		_ = null;
 	}

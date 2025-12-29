@@ -42,9 +42,9 @@ There are 4 main scripts/classes. They are all abstract base classes that are in
 2. Add the `UIDocument` component to the `GameObject`
 3. Add a Panel Settings Asset to the `Panel Settings` field and a `.uxml` UI Document file to the `Source Asset` field
     - The `.uxml` UI Document should contain the file path to any used `.uss` style sheet
-4. Create and add a "top level" `UI` or `UISingleton<T>` component to the `GameObject`
+4. Create and add a "top level" `UI` or `UISingleton<T>` component to the `GameObject` (copy template in `UI.cs` or `UISingleton.cs`)
     - E.g. `MainMenuUI : UISingleton<T>` or `CharacterUI : UI`
-5. Create and add `UIController` components to the `GameObject` and initialize them in the `UI` or `UISingleton<T>` component
+5. Create and add `UIController` components to the `GameObject` and initialize them in the `UI` or `UISingleton<T>` component (copy template in `UIController.cs`)
     - E.g. `HealthbarController : UIController` or `PauseMenuController : UIController`
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -85,10 +85,7 @@ public class ButtonController : UIController
 	protected override void RemoveElements()
 	{
 		//Remove elements from parent element
-		if (_parentElement != null)
-		{
-			if (_button != null) { _parentElement.Remove(_button); }
-		}
+		if (_button != null) { _button.RemoveFromHierarchy(); }
 
 		//Set references to null
 		_button = null;
